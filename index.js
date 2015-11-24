@@ -3,14 +3,21 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use('/package.json', express.static(__dirname + '/package.json'));
+app.use('/dist', express.static(__dirname + '/dist'));
+app.use('/src', express.static(__dirname + '/src'));
 
 // views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+
+var engines = require('consolidate');
+
+app.set('views', __dirname);
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  response.render('production.html');
 });
 
 app.listen(app.get('port'), function() {

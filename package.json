@@ -1,26 +1,64 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.5",
-  "description": "A sample Node.js app using Express 4",
-  "main": "index.js",
+  "name": "my-app",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
   "scripts": {
-    "start": "node index.js"
+    "test": "testee src/test.html --browsers firefox --reporter Spec",
+    "start": "can-serve --port 8080",
+    "develop": "can-serve --develop --port 8080",
+    "document": "documentjs",
+    "build": "node build"
+  },
+  "main": "my-app/index.stache!done-autorender",
+  "files": [
+    "src"
+  ],
+  "keywords": [],
+  "system": {
+    "main": "my-app/index.stache!done-autorender",
+    "directories": {
+      "lib": "src"
+    },
+    "configDependencies": [
+      "live-reload"
+    ],
+    "npmIgnore": [
+      "documentjs",
+      "testee",
+      "donejs-deploy",
+      "generator-donejs",
+      "donejs-cli"
+    ]
   },
   "dependencies": {
-    "ejs": "2.3.3",
-    "express": "4.13.3"
+    "bootstrap": "^3.3.5",
+    "can": "^2.3.1",
+    "can-connect": "^0.3.1",
+    "can-ssr": "^0.10.1",
+    "consolidate": "^0.13.1",
+    "done-autorender": "^0.5.0",
+    "done-component": "^0.3.1",
+    "done-css": "^1.1.15",
+    "express": "^4.13.3",
+    "generator-donejs": "^0.3.4",
+    "jquery": "^2.1.4",
+    "mustache": "^2.2.0",
+    "steal": "^0.12.3"
   },
-  "engines": {
-    "node": "0.12.7"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+  "devDependencies": {
+    "can-fixture": "0.0.1",
+    "documentjs": "^0.3.3",
+    "donejs-cli": "^0.5.6",
+    "donejs-deploy": "^0.3.1",
+    "funcunit": "^3.0.0",
+    "steal-qunit": "^0.1.1",
+    "steal-tools": "^0.12.1",
+    "testee": "^0.2.2"
+  }
 }
